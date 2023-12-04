@@ -1,0 +1,47 @@
+<!-- views/attendance.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Mark Attendance</title>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2>Mark Attendance</h2>
+  
+  <form action="/markAttendance" method="post">
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+    <a href="/showAttendance">Show Attendance</a>
+    
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>Roll Number</th>
+          <th>Student Name</th>
+          <th>Present</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% students.forEach(student => { %>
+          <tr>
+            <td><%= student.rollNumber %></td>
+            <td><%= student.name %></td>
+            <td>
+              <input type="checkbox" name="present[]" value="<%= student._id %>">
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-primary">Submit Attendance</button>
+  </form>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!-- views/showAttendance.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Show Attendance</title>
+</head>
+<body>
+
+<div class="container mt-5">
+  <h2>Show Attendance</h2>
+
+  <% if (attendance.length > 0) { %>
+    <table class="table mt-3">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Roll Number</th>
+          <th>Student Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% attendance.forEach(entry => { %>
+          <% entry.students.forEach(student => { %>
+            <tr>
+              <td><%= entry.date %></td>
+              <td><%= student.student.rollNumber %></td>
+              <td><%= student.student.name %></td>
+              <td><%= student.present ? 'Present' : 'Absent' %></td>
+            </tr>
+          <% }); %>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No attendance data available.</p>
+  <% } %>
+
+  <a href="/">Go back</a>
+</div>
+
+</body>
+</html>

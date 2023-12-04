@@ -1,0 +1,23 @@
+/* public/style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 800px;
+  }
+  
+  .table {
+    margin-top: 20px;
+  }
+  
+  .btn {
+    cursor: pointer;
+  }
+  
